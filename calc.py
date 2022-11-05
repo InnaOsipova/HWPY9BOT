@@ -15,13 +15,8 @@ def calculation(a, operation, b):
     return result
 
 
-def calc_ration():
-    user_expression = input('Введите выражение для вычисления в формате: "A/B действие C/D, где:"'
-                            '\n A и B - числители первой и второй дроби'
-                            '\n C и D - знаменатели первой и второй дроби'
-                            '\nдействие - математическая операция которую нужно произвести с двумя числами'
-                            '\nМежду дробями и действием ставьте пробелы:'
-                            '\n').split()
+def calc_ration(massage):
+    user_expression = massage.split()
     first_number, second_number = (user_expression[0]).split('/'), user_expression[2].split('/')
 
     number_a = Fraction(int(first_number[0]), int(first_number[1]))
@@ -33,13 +28,8 @@ def calc_ration():
     return result
 
 
-def calc_complex():
-    user_expression = input('Введите выражение для вычисления в формате: "A знак B действие C знак D, где:'
-                            '\n A и C - действительные части чисел"'
-                            '\n B и D - мнимые части чисел'
-                            '\n действие - математическая операция которую нужно произвести с двумя числами'
-                            '\nМежду числами и знаком ставьте пробелы:'
-                            '\n').split()
+def calc_complex(massege1):
+    user_expression = massege1.split()
     a_imaginary_part, b_imaginary_part = float(user_expression[2]), float(user_expression[6])
 
     if user_expression[1] == '-':
