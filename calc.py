@@ -1,4 +1,6 @@
 from fractions import Fraction
+import log as l
+
 
 def calculation(a, operation, b):
     result = None
@@ -11,7 +13,7 @@ def calculation(a, operation, b):
     elif operation == '*':
         result = a * b
     else:
-        print('Неизвестный оператор')
+        result = 'неизвестный оператор'
     return result
 
 
@@ -23,8 +25,8 @@ def calc_ration(massage):
     number_b = Fraction(int(second_number[0]), int(second_number[1]))
 
     calc_result = calculation(number_a, user_expression[1], number_b)
-    result = str("".join(map(str, user_expression)) + " = " + str(calc_result))
-    print(result)
+    result = str(''.join(map(str, user_expression)) + ' = ' + str(calc_result))
+    l.add_log('Пользователь выбрал работу с рациональными числами' + ' ' + result)
     return result
 
 
@@ -40,6 +42,6 @@ def calc_complex(massege1):
     number_a = complex(float(user_expression[0]), a_imaginary_part)
     number_b = complex(float(user_expression[4]), b_imaginary_part)
     calc_result = calculation(number_a, user_expression[3], number_b)
-    result = str("".join(map(str, user_expression)) + " = " + str(calc_result))
-    print(result)
+    result = str(''.join(map(str, user_expression)) + ' = ' + str(calc_result))
+    l.add_log('Пользователь выбрал работу с комплексными числами' + ' ' + result)
     return result
